@@ -1,6 +1,6 @@
 # Naskvoz · Насквозь
 
-A Windows app that tests and selects local DPI bypass configurations for YouTube, Discord and other sites. It uses zapret2/winws2 and GoodbyeDPI, with separate checks for HTTPS endpoints and YouTube video servers.
+A Windows app that tests and selects local DPI bypass configurations for YouTube, Discord and other sites. It checks HTTPS endpoints and YouTube video servers separately.
 
 [Русская инструкция](README.md) · [Download for Windows x64](https://github.com/RedTowerInc/naskvoz/releases/latest/download/Naskvoz-Windows-x64.zip) · [Telegram: @AndyMooren](https://t.me/AndyMooren)
 

@@ -14,9 +14,11 @@ A Windows app that tests and selects local DPI bypass configurations for YouTube
 
 Requires Windows 10/11 x64 and [Microsoft Edge WebView2 Runtime](https://developer.microsoft.com/microsoft-edge/webview2/). Python is bundled in the release. No proxy or remote server is required for the local bypass methods.
 
-Initial selection takes several minutes. Stop any other DPI bypass engine before running it. Settings include IPv4/IPv6, QUIC handling, a YouTube URL for troubleshooting, manual profiles and an optional experimental Discord UDP mode.
+Version **2.0.2** stops quick selection once a configuration has passed repeated confirmation for every target. Different services can use separate profiles within one saved configuration. Timeouts can still make selection take several minutes. Stop any other DPI bypass engine before running it. Settings include IPv4/IPv6, QUIC handling, a YouTube URL for troubleshooting, manual profiles and an optional experimental Discord UDP mode.
 
-From **2.0.1**, automatic mode checks the last working configuration first. It searches for a replacement only if that check fails. Transient failures are checked again; a failed connectivity control reports a network or DNS problem instead of starting a new search.
+On later starts, the app applies the last working configuration and runs a short HTTPS/CDN check. It does not compare the whole catalog or repeat media downloads on each start. Failed requests are checked again. A partial failure, such as a Discord CDN timeout while its API works, keeps the bypass running with a warning. Automatic replacement starts if a service stops responding entirely. If only video fails, only the video profile is replaced. Unavailable CDN discovery shows a warning instead of starting a new search. A failed connectivity control reports a network or DNS problem.
+
+The main card shows the selected configuration. **«Составная схема»** means several profiles are used for different sites or video servers. Press **«Состав схемы»** to view their names and domains; they are also listed on the Profiles page. Use **«Проверить схему»** to check the saved result, or **«Профили → Подобрать новую схему»** to request a new selection. Full comparison remains available in Settings; the first confirmed configuration may not be the fastest in the catalog.
 
 To update, close the app and extract the new archive into the existing folder. Keep **`data`** to preserve settings and the last working configuration. A fresh folder needs an initial selection.
 

@@ -12,17 +12,19 @@ A Windows app that tests and selects local DPI bypass configurations for YouTube
 2. Extract the entire `Naskvoz` folder. Keep `_internal`, `engines` and `config` next to the executable.
 3. Run `Naskvoz.exe` as administrator and press the central button. The first run selects and verifies a configuration for your connection.
 
-Requires Windows 10/11 x64. The graphics engine, Python and required libraries are bundled; no separate runtime installation is needed. No proxy or remote server is required for the local bypass methods.
+Requires Windows 10/11 x64. The archive includes the graphics engine, Python and required libraries. The app works locally on your PC.
 
-The **21 November 2026** build uses bundled QtWebEngine and preserves the existing interface and network configurations. The download is about **202 MiB**, or **482 MiB** extracted. Startup has been tested on Windows 10 Pro 22H2 x64.
+The current release is **2.0.3**. The download is about **203 MiB**, or **482 MiB** extracted. Startup has been tested on Windows 10 Pro 22H2 x64.
 
-Version **2.0.2** stops quick selection once a configuration has passed repeated confirmation for every target. Different services can use separate profiles within one saved configuration. Timeouts can still make selection take several minutes. Stop any other DPI bypass engine before running it. Settings include IPv4/IPv6, QUIC handling, a YouTube URL for troubleshooting, manual profiles and an optional experimental Discord UDP mode.
+Auto-selection can combine different profiles for websites and video servers. The app tests the combination together and saves it as soon as selection finishes. The next time you turn it on, the app runs a short check of the saved configuration.
 
-On later starts, the app applies the last working configuration and runs a short HTTPS/CDN check. It does not compare the whole catalog or repeat media downloads on each start. Failed requests are checked again. A partial failure, such as a Discord CDN timeout while its API works, keeps the bypass running with a warning. Automatic replacement starts if a service stops responding entirely. If only video fails, only the video profile is replaced. Unavailable CDN discovery shows a warning instead of starting a new search. A failed connectivity control reports a network or DNS problem.
+If a CDN times out but each service still has a confirmed endpoint, the app saves the configuration with a warning. If selection finds no workable configuration, use **«Подобрать заново»** (try again) to start a new search. Stop any other DPI bypass engine before running the app.
 
 The main card shows the selected configuration. **«Составная схема»** means several profiles are used for different sites or video servers. Press **«Состав схемы»** to view their names and domains; they are also listed on the Profiles page. Use **«Проверить схему»** to check the saved result, or **«Профили → Подобрать новую схему»** to request a new selection. Full comparison remains available in Settings; the first confirmed configuration may not be the fastest in the catalog.
 
 To update, close the app and extract the new archive into a separate folder. Copy **`data`** from the previous `Naskvoz` folder to preserve settings and the last working configuration. A fresh folder needs an initial selection.
+
+If the window flickers, open **«Параметры → Отрисовка окна»** (Settings → Rendering), select **«Совместимая (статичная)»** (Compatibility), save and restart. This mode uses a static background.
 
 HTTPS checks do not verify Discord voice. Passing the selected YouTube CDN checks does not guarantee uninterrupted playback for every video or network route. The app reports failed checks instead of treating a running engine as proof of service availability.
 

@@ -14,19 +14,21 @@ A Windows app that tests and selects local DPI bypass configurations for YouTube
 
 Requires Windows 10/11 x64. The archive includes the graphics engine, Python and required libraries. The app works locally on your PC.
 
-The current release is **2.0.3**. The download is about **203 MiB**, or **482 MiB** extracted. Startup has been tested on Windows 10 Pro 22H2 x64.
+The current release is **2.0.4**. The download is about **203 MiB**, or **482 MiB** extracted. Startup has been tested on Windows 10 Pro 22H2 x64.
 
 Auto-selection can combine different profiles for websites and video servers. The app tests the combination together and saves it as soon as selection finishes. The next time you turn it on, the app runs a short check of the saved configuration.
 
 If a CDN times out but each service still has a confirmed endpoint, the app saves the configuration with a warning. If selection finds no workable configuration, use **«Подобрать заново»** (try again) to start a new search. Stop any other DPI bypass engine before running the app.
 
-The main card shows the selected configuration. **«Составная схема»** means several profiles are used for different sites or video servers. Press **«Состав схемы»** to view their names and domains; they are also listed on the Profiles page. Use **«Проверить схему»** to check the saved result, or **«Профили → Подобрать новую схему»** to request a new selection. Full comparison remains available in Settings; the first confirmed configuration may not be the fastest in the catalog.
+The main card shows the selected configuration. **«Составная схема»** means several profiles are used for different sites or video servers. Press **«Состав схемы»** to see the profiles and domains.
+
+Open **«Проверка и подбор»** (Check and select) on the home screen. **«Проверить текущую схему»** checks the current configuration while it stays active. **«Подобрать новую схему»** starts a new search even if the check passed. If the search finds no replacement, the app restores the previous configuration. The connection may briefly drop during selection. A full comparison is available in Settings.
 
 To update, close the app and extract the new archive into a separate folder. Copy **`data`** from the previous `Naskvoz` folder to preserve settings and the last working configuration. A fresh folder needs an initial selection.
 
 If the window flickers, open **«Параметры → Отрисовка окна»** (Settings → Rendering), select **«Совместимая (статичная)»** (Compatibility), save and restart. This mode uses a static background.
 
-HTTPS checks do not verify Discord voice. Passing the selected YouTube CDN checks does not guarantee uninterrupted playback for every video or network route. The app reports failed checks instead of treating a running engine as proof of service availability.
+If a video stalls, open the **YouTube** card and paste its link. **«Проверить загрузку»** requests a sample if YouTube makes one available. **«Подобрать новую схему»** starts a fresh search using that link. The card reports CDN reachability and sample downloads separately. Check the affected playback position in your browser and test Discord voice in Discord.
 
 The app keeps settings and reports in `data` next to the executable. It does not change system DNS, proxy settings, firewall rules or startup entries. Closing the app stops its own engine.
 
